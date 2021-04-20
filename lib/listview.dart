@@ -26,7 +26,7 @@ class ListViewInitPage extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.black12),
             // margin: EdgeInsets.only(top: 10),
             child:
-                GetListViewBuilderVertical(itemsCharacterList, Axis.horizontal),
+                listViewBuilderOrientation(itemsCharacterList, Axis.horizontal),
             height: MediaQuery.of(context).size.height * .20,
           ),
           Container(
@@ -40,7 +40,7 @@ class ListViewInitPage extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.black12),
             // margin: EdgeInsets.only(top: 10),
             child: SingleChildScrollView(
-              child: GetListViewBuilderVertical(itemsList, Axis.vertical),
+              child: listViewBuilderOrientation(itemsList, Axis.vertical),
             ),
             //height: MediaQuery.of(context).size.height * .70,
             height: MediaQuery.of(context).size.height * .30,
@@ -55,9 +55,7 @@ class ListViewInitPage extends StatelessWidget {
     );
   }
 
-  GetListViewBuilder() {}
-
-  Widget GetListViewBuilderVertical(List<Item> imageList, [Axis horizontal]) {
+  Widget listViewBuilderOrientation(List<Item> imageList, [Axis horizontal]) {
     ScrollController _scrollController = ScrollController();
 
     return ListView.builder(
