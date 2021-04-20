@@ -43,6 +43,11 @@ flutter:
     - assets/images/night.jpg
     - assets/images/night_bg.png
     - assets/images/night_m.jpg
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf  
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

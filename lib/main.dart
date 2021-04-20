@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wiki_app/listview.dart';
 
 void main() {
   runApp(MyApp());
@@ -113,10 +114,33 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            TextButton(
+              onPressed: _showUserSettingsPage,
+              // Respond to button press
+
+              child: Text("LISTVIEW"),
+            )
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.list),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  void _showUserSettingsPage() {
+    setState(() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ListViewInitPage()),
+      );
+    });
+
+    //Navigator.of(context).push(context, MaterialPageRoute(builder: (context) => OUserSettingsPage());
+    //    .pushNamedAndRemoveUntil(OUserSettingsPage.routeName, (route) => false);
   }
 }
