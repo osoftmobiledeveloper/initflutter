@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wiki_app/domain/model/item.dart';
 
 import 'common/our_appbar.dart';
+import 'common/our_element_view.dart';
 import 'common/our_footer.dart';
 import 'infrastructure/driven_adapter/listivew_data_,mock.dart';
 
@@ -9,8 +10,8 @@ class ListViewInitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ItemMock itemMock = new ItemMock();
-    var itemsList = itemMock.getLAllItems();
-    var itemsCharacterList = itemMock.getLAllCharacterItems();
+    var itemsList = itemMock.getAllItems();
+    var itemsCharacterList = itemMock.getAllCharacterItems();
     return Scaffold(
       appBar: OurAppBar(title: 'ListView', iconAppBar: Icon(Icons.add_a_photo)),
       body: Center(
@@ -69,34 +70,13 @@ class ListViewInitPage extends StatelessWidget {
             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 16.0),
             child: Row(
               children: <Widget>[
-                Container(
-                  height: 120,
-                  width: horizontal == Axis.horizontal ? 70 : 140,
-                  child: Image.network(imageList[int].image,
-                      width: 150, height: 150, fit: BoxFit.fill),
-                ),
-                Column(
-                  children: [
-                    Center(
-                        child: Container(
-                      padding: EdgeInsets.fromLTRB(21, 20, 22, 20),
-                      child: Text(
-                        imageList[int].title,
-                        style: TextStyle(
-                            color: Colors.blueGrey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(21, 5, 22, 8),
-                      child: Text(
-                        imageList[int].description,
-                        style: TextStyle(color: Colors.black, fontSize: 12),
-                      ),
-                    ),
-                  ],
-                ),
+                OurElementView(
+                    imageList[int],
+                    /*imageList[int].id,
+                    imageList[int].image,
+                    imageList[int].description,
+                    imageList[int].title,*/
+                    horizontal),
               ],
             ),
           );
